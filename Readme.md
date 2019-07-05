@@ -7,24 +7,21 @@ Simple RESTful API webservice for managing and storing simple text notes. Single
 Service was tested at machine with:
 
 - Windows 10 Home 64-bit buid 17134
-- Java build 1.8.0_181
+- Java build build 11.0.2+9-LTS
 - Maven 3.5.3
-- Tomcat 8.5
 - MySQL 8.0
 
 ### Installing
 
-1. Go to `../notes-app/notes-webapp/src/main/webapp/WEB-INF/applicationContext.xml` and set "dataSource" bean. Default setup is:
+1. Set envoirenment variables with database credencials and url. Names of variables:
 
    ```
-   "jdbcUrl"="mysql://localhost:3306"
-   "user"="user"
-   "password"="password"
+   NOTES_DB_URL
+   NOTES_DB_USERNAME
+   NOTES_DB_PASSWORD
    ```
 
-2. Go to `../notes-app/`  and use `mvn install` command to build a package and install it in local repository.
-
-3. Deploy `../notes-app/notes-webapp/target/notes-webapp-0.0.1-SNAPSHOT.war` file at server or servlet container.
+2. Go to `../notes-app/`  and use `mvn package` command to build a package and run executable jar file.
 
 ### Setup database
 
@@ -52,24 +49,6 @@ CREATE TABLE `notes`.`notes_history` (
   PRIMARY KEY (`note_history_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET= utf8mb4
 ```
-
-### Testing
-
-1. Go to
-
-   ```
-   ../notes-app-test/notes-app-rest-test/src/test/java/com/polsource/assignment/backend/test/NoteRestApiServiceTest.java
-   ```
-
-   and set url field with URL application runned at server. Default setup is: 
-
-   ```
-   "http://localhost:8080/notes-webapp/notes"
-   ```
-
-2. Go to `../notes-app-test/`  and use `mvn test` command to run integration tests.
-
-Tests use real database. Be aware it's going to delete existings records.
 
 ### Example usages
 
@@ -108,7 +87,7 @@ Some example curl commands to use:
 - Get a note changes history (100 is example note id)
 
   ```
-  curl -H "Content-Type: application/json" http://localhost:8080/notes-webapp/notes/100-history -X GET
+  curl -H "Content-Type: application/json" http://localhost:8080/notes-webapp/notes/100/history -X GET
   ```
 
 - Get a list of notes
