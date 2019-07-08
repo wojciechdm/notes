@@ -1,12 +1,12 @@
 package com.wojciechdm.rest.notes;
 
-import java.util.List;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface NoteHistoryDao extends CrudRepository<NoteHistory, Long> {
+import java.util.List;
 
-	public List<NoteHistory> findAllByNoteId(Long noteId);
-	@SuppressWarnings("unchecked")
-	public NoteHistory save(NoteHistory noteHistory);
-	
+@Repository
+interface NoteHistoryDao extends CrudRepository<NoteHistory, Long> {
+
+	List<NoteHistory> findAllByNoteId(long noteId);
 }
