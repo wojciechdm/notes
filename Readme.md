@@ -1,15 +1,8 @@
 # Notes
 
-Simple RESTful API webservice for managing and storing simple text notes. Single note contains title, content, date of creation, date of last modification and number of version. There is also stored history of note modifactions.
+RESTful API webservice for managing and storing simple text notes. Single note contains title, content, date of creation, date of last modification and number of version. There is also stored history of note modifactions.
 
-### Getting started
-
-Service was tested at machine with:
-
-- Windows 10 Home 64-bit buid 17134
-- Java build build 11.0.2+9-LTS
-- Maven 3.5.3
-- MySQL 8.0
+Used technologies: Java 11, Maven, MySQL, Spring Boot, Hibernate, Lombok, Spock, Testcontainers.
 
 ### Installing
 
